@@ -1,22 +1,28 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import { Flex, Spacer, Box, Heading } from '@chakra-ui/react'
+
 
 const NavBar = () => {
     return (
         <>
             <div>
-                <h1>Top Running</h1>
-                <div>
-                    <ul>
-                        <li>
-                            <button>inicio</button>
-                        </li>
-                        <li>
-                            <button>productos</button>
-                        </li>
-                    </ul>
-                </div>
-                <CartWidget />
+
+
+                <Flex>
+                    <Box p='4' bg='aliceblue'>
+                        <Heading>Top Running</Heading>
+                    </Box>
+                    <Spacer bg='aliceblue' />
+                    <Box p='6' bg='aliceblue'>
+                        <button>Inicio</button>
+                        <button>Productos</button>
+                    </Box>
+                    <Spacer bg='aliceblue' />
+                    <Box p='4' bg='aliceblue'>
+                        <CartWidget />
+                    </Box>
+                </Flex>
             </div>
         </>
     );
