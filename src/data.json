@@ -1,0 +1,7 @@
+[
+    {"id": 1, "name": "Tenis nike", "description": "Tenis de alto rendimiento para corredores que buscan estabilidad y muchas otras funcio...", "price": 2500, "stock": 3, "category": "nike", "img": "https://martimx.vtexassets.com/arquivos/ids/952177/1127902254-1.png?v=637950535664070000"},
+
+    {"id": 2, "name": "Tenis adidas", "description": "Tenis de alto rendimiento para corredores que buscan estabilidad y muchas otras funcio...", "price": 2400, "stock": 4, "category": "adidas", "img": "http://cdn.shopify.com/s/files/1/0279/6545/6467/products/adidas-eq21-run-tenis-916.png?v=1675116746"},
+
+    {"id": 3, "name": "Tenis sketchers", "description": "Tenis de alto rendimiento para corredores que buscan estabilidad y muchas otras funcio...", "price": 2700, "stock": 2, "category": "sketchers", "img": "https://martimx.vtexassets.com/arquivos/ids/1006906-800-800?v=638025053937970000&width=800&height=800&aspect=true"}
+]
