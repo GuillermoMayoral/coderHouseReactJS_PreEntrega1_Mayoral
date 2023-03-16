@@ -7,6 +7,7 @@ import ShoopingCartContext from "./components/ShoopingCartContext";
 import Cart from "./components/Cart";
 import Welcome from "./components/Welcome";
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
+import StateComponent from "./components/context/StateComponent";
 
 function App() {
   return (
@@ -14,19 +15,21 @@ function App() {
 
       <BrowserRouter>
         <ChakraProvider>
-          <NavBar />
-          <Routes>
-            <Route exact path="/" element={<Welcome />} />
-            <Route exact path="/items" element={<ItemListContainer />} />
-            <Route
-              exact
-              path="/category/:category"
-              element={<ItemListContainer />}
-            />
-            <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-            <Route exact path="/shooping" element={<ShoopingCartContext />} />
-            <Route exact path="/cart" element={<Cart />} />
-          </Routes>
+          <StateComponent>
+            <NavBar />
+            <Routes>
+              <Route exact path="/" element={<Welcome />} />
+              <Route exact path="/items" element={<ItemListContainer />} />
+              <Route
+                exact
+                path="/category/:category"
+                element={<ItemListContainer />}
+              />
+              <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+              <Route exact path="/shooping" element={<ShoopingCartContext />} />
+              <Route exact path="/cart" element={<Cart />} />
+            </Routes>
+          </StateComponent>
         </ChakraProvider>
       </BrowserRouter>
     </>

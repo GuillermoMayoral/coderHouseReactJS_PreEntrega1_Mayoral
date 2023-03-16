@@ -15,6 +15,9 @@ import {
 import ItemCount from './ItemCount'
 import { useParams } from "react-router-dom";
 
+
+
+
 const ItemDetail = ({ Data }) => {
     const { id } = useParams();
     const filter = Data.filter((datos) => datos.id == id);

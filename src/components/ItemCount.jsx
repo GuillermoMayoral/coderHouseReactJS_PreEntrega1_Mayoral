@@ -8,17 +8,32 @@ import {
     Button,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { CounterContext } from './context/StateComponent';
+
+
+
+
 
 const ItemCount = ({ stock, id, price, name }) => {
     const [count, setCount] = useState(1);
+    const { setCwCounter, cwCounter } = useContext(CounterContext)
 
-    const addOne = () => {
+    const aumento = () => {
         setCount(count + 1);
     };
 
-    const lessOne = () => {
+    const disminuir = () => {
         setCount(count - 1);
     };
+
+    const agregarCartW = () => {
+        { cwCounter < stock ? (setCwCounter(cwCounter + count)) : (<IconButton isDisabled />) }
+    };
+
+
+
+
+
 
     return (
         <>
@@ -28,25 +43,26 @@ const ItemCount = ({ stock, id, price, name }) => {
                         <IconButton icon={<MinusIcon />} isDisabled />
                     </Tooltip>
                 ) : (
-                    <IconButton icon={<MinusIcon />} onClick={lessOne} />
+                    <IconButton icon={<MinusIcon />} onClick={disminuir} />
                 )}
                 <Center>
                     <Button
-                        onClick={() => addToCart()}
+                        onClick={() => agregarCartW()}
                         variant="solid"
-                        colorScheme="blue"
+                        colorScheme="green"
                     >
-                        Add to cart: {count}
+                        Agregar a carrito: {count}
                     </Button>
                 </Center>
-                {count < stock ? (
-                    <IconButton icon={<AddIcon />} onClick={addOne} />
+                {count < stock - cwCounter ? (
+                    <IconButton icon={<AddIcon />} onClick={aumento} />
                 ) : (
                     <Tooltip label="Has alcanzado el maximo Stock" placement="bottom">
                         <IconButton icon={<AddIcon />} isDisabled />
                     </Tooltip>
                 )}
             </ButtonGroup>
+            <h1>{cwCounter}</h1>
         </>
     );
 };

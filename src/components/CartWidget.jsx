@@ -1,13 +1,18 @@
+import { useConst } from "@chakra-ui/react";
 import React from "react";
+import { CounterContext } from "./context/StateComponent";
+import { useContext } from "react";
 
 const CartWidget = () => {
+    const { cwCounter } = useContext(CounterContext);
+
+
     return (
         <div>
-            <button>Carrito de compras -</button>
+            <button>{cwCounter} - </button>
             <span className="material-symbols-outlined">
                 shopping_cart
             </span>
-            <span>3</span>
         </div>
     );
 };
