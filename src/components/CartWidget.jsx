@@ -1,7 +1,9 @@
-import { useConst } from "@chakra-ui/react";
+
 import React from "react";
 import { CounterContext } from "./context/StateComponent";
 import { useContext } from "react";
+import { Link } from "react-router-dom"
+
 
 const CartWidget = () => {
     const { cwCounter } = useContext(CounterContext);
@@ -10,9 +12,9 @@ const CartWidget = () => {
     return (
         <div>
             <button>{cwCounter} - </button>
-            <span className="material-symbols-outlined">
+            <Link to={'/cart'}><span className="material-symbols-outlined">
                 shopping_cart
-            </span>
+            </span></Link>
         </div>
     );
 };

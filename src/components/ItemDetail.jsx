@@ -47,6 +47,7 @@ const ItemDetail = ({ Data }) => {
                                         id={datos.id}
                                         price={datos.price}
                                         name={datos.name}
+                                        img={datos.img}
                                     />
                                 </Center>
                             </CardFooter>

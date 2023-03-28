@@ -14,10 +14,10 @@ const StateComponent = ({ children }) => {
         setCarro(carro + cwCounter)
     }
 
-
+    const [prod, setProd] = useState([]);
 
     return (
-        <CounterContext.Provider value={{ setCwCounter, cwCounter, carro, actualizarCarro }}>{children}</CounterContext.Provider>
+        <CounterContext.Provider value={{ prod, setProd, setCwCounter, cwCounter, carro, actualizarCarro }}>{children}</CounterContext.Provider>
     )
 }
 

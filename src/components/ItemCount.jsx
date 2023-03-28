@@ -14,9 +14,9 @@ import { CounterContext } from './context/StateComponent';
 
 
 
-const ItemCount = ({ stock, id, price, name }) => {
+const ItemCount = ({ stock, id, price, name, img }) => {
     const [count, setCount] = useState(1);
-    const { setCwCounter, cwCounter } = useContext(CounterContext)
+    const { prod, setProd, setCwCounter, cwCounter } = useContext(CounterContext)
 
     const aumento = () => {
         setCount(count + 1);
@@ -26,10 +26,32 @@ const ItemCount = ({ stock, id, price, name }) => {
         setCount(count - 1);
     };
 
+    const eventFun = () => {
+        agregarCartW();
+        agregarProducto()
+    };
+
     const agregarCartW = () => {
         { cwCounter < stock ? (setCwCounter(cwCounter + count)) : (<IconButton isDisabled />) }
     };
 
+    // const [prod, setProd] = useState([]);
+
+    // const agregarProducto = () => {
+    //     const obj = [name];
+    //     const ident = [price]
+    //     const cant = [count]
+    //     setProd([obj, + ident, + cant,]);
+    // }
+
+    const agregarProducto = () => {
+
+        const obj = { "id": id, "marca": name, "cantidad": count, "precio": price, "img": img };
+
+        setProd([...prod, obj]);
+    }
+
+    console.log(prod);
 
 
 
@@ -47,7 +69,7 @@ const ItemCount = ({ stock, id, price, name }) => {
                 )}
                 <Center>
                     <Button
-                        onClick={() => agregarCartW()}
+                        onClick={() => eventFun()}
                         variant="solid"
                         colorScheme="green"
                     >
