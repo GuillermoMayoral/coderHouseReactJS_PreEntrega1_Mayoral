@@ -3,6 +3,9 @@ import { Container, Flex } from "@chakra-ui/react";
 import Item from './Item'
 
 const Itemlist = ({ producto }) => {
+
+
+
     return (
         <>
             <Container maxW="container.lg">

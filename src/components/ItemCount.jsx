@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import {
-    Text,
     ButtonGroup,
     IconButton,
     Tooltip,
@@ -10,13 +9,9 @@ import {
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { CounterContext } from './context/StateComponent';
 
-
-
-
-
 const ItemCount = ({ stock, id, price, name, img }) => {
     const [count, setCount] = useState(1);
-    const { prod, setProd, setCwCounter, cwCounter } = useContext(CounterContext)
+    const { prod, setProd, setCwCounter, cwCounter, total, setTotal } = useContext(CounterContext)
 
     const aumento = () => {
         setCount(count + 1);
@@ -35,26 +30,15 @@ const ItemCount = ({ stock, id, price, name, img }) => {
         { cwCounter < stock ? (setCwCounter(cwCounter + count)) : (<IconButton isDisabled />) }
     };
 
-    // const [prod, setProd] = useState([]);
-
-    // const agregarProducto = () => {
-    //     const obj = [name];
-    //     const ident = [price]
-    //     const cant = [count]
-    //     setProd([obj, + ident, + cant,]);
-    // }
-
     const agregarProducto = () => {
 
         const obj = { "id": id, "marca": name, "cantidad": count, "precio": price, "img": img };
 
         setProd([...prod, obj]);
+        setTotal(total + price * count)
     }
 
-    console.log(prod);
-
-
-
+    console.log(total);
 
 
     return (
@@ -65,7 +49,7 @@ const ItemCount = ({ stock, id, price, name, img }) => {
                         <IconButton icon={<MinusIcon />} isDisabled />
                     </Tooltip>
                 ) : (
-                    <IconButton icon={<MinusIcon />} onClick={disminuir} />
+                    <IconButton icon={<MinusIcon />} onClick={() => disminuir()} />
                 )}
                 <Center>
                     <Button
@@ -77,7 +61,7 @@ const ItemCount = ({ stock, id, price, name, img }) => {
                     </Button>
                 </Center>
                 {count < stock - cwCounter ? (
-                    <IconButton icon={<AddIcon />} onClick={aumento} />
+                    <IconButton icon={<AddIcon />} onClick={() => aumento()} />
                 ) : (
                     <Tooltip label="Has alcanzado el maximo Stock" placement="bottom">
                         <IconButton icon={<AddIcon />} isDisabled />

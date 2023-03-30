@@ -14,7 +14,12 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom"
 
-const Item = ({ id, name, price, description, img }) => {
+const Item = ({ id, name, price, description, img, stock }) => {
+    console.log("este es el id " + id);
+    console.log("este es el stock " + stock);
+
+
+
     return (
         <div>
             <div key={id}>

@@ -18,11 +18,12 @@ import {
 } from "@chakra-ui/react";
 
 const Cart = () => {
-    const { prod, setProd, setCwCounter } = useContext(CounterContext);
+    const { total, setTotal, prod, setProd, setCwCounter } = useContext(CounterContext);
 
     const borrarCarro = () => {
         setProd([]);
         setCwCounter(0);
+        setTotal(0);
     };
 
     return (
@@ -48,6 +49,7 @@ const Cart = () => {
                                 <Button variant="solid" colorScheme="red" onClick={() => borrarCarro()}>
                                     ELIMINAR
                                 </Button>
+                                <Heading size="md">Total ${total}.00</Heading>
                             </Center>
                         </CardFooter>
                     </Card>
