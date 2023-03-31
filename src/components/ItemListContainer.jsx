@@ -15,8 +15,13 @@ const ItemListContainer = () => {
 
         const itemsCollection = collection(db, "calzado");
         getDocs(itemsCollection).then((snapshot) => {
-            const docs = snapshot.docs.map((doc) => doc.data());
+            const docs = snapshot.docs.map((doc) => {
+                return (
+                    { id: doc.id, ...doc.data() }
+                )
+            });
             setProductos(docs)
+            console.log(productos);
         })
     }, [])
 
