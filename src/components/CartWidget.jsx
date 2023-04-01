@@ -4,10 +4,8 @@ import { CounterContext } from "./context/StateComponent";
 import { useContext } from "react";
 import { Link } from "react-router-dom"
 
-
 const CartWidget = () => {
     const { cwCounter } = useContext(CounterContext);
-
 
     return (
         <div>

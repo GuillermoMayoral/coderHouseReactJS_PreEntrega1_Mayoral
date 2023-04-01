@@ -18,15 +18,10 @@ import { useState, useEffect } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import Loading from './Loading';
 
-
-
-
 const ItemDetail = () => {
 
     const [producto, setProducto] = useState([]);
     const [load, setLoad] = useState(true);
-
-
 
     useEffect(() => {
         const db = getFirestore();
@@ -35,17 +30,12 @@ const ItemDetail = () => {
         getDoc(itemId).then((snapshot) => {
             if (snapshot.exists()) {
                 const docs = snapshot.data();
-                console.log(docs);
                 setProducto(docs);
                 setLoad(false);
             }
         })
 
-
     }, [])
-
-    console.log(producto);
-
 
     const { id } = useParams();
 

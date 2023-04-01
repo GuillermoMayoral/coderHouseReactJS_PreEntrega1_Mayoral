@@ -4,8 +4,6 @@ import Item from './Item'
 
 const Itemlist = ({ producto }) => {
 
-
-
     return (
         <>
             <Container maxW="container.lg">

@@ -2,14 +2,11 @@ import React from 'react'
 import {
     Card,
     CardBody,
-    CardFooter,
     Heading,
     Image,
     Stack,
     Text,
     Divider,
-    Button,
-    Center,
     Flex
 } from "@chakra-ui/react";
 

@@ -11,7 +11,7 @@ import { CounterContext } from './context/StateComponent';
 
 const ItemCount = ({ stock, id, price, name, img }) => {
     const [count, setCount] = useState(1);
-    const { prod, setProd, setCwCounter, cwCounter, total, setTotal } = useContext(CounterContext)
+    const { prod, setProd, setCwCounter, cwCounter, total, setTotal, setEmpty } = useContext(CounterContext)
 
     const aumento = () => {
         setCount(count + 1);
@@ -36,10 +36,8 @@ const ItemCount = ({ stock, id, price, name, img }) => {
 
         setProd([...prod, obj]);
         setTotal(total + price * count)
+        setEmpty(false)
     }
-
-    console.log(total);
-
 
     return (
         <>

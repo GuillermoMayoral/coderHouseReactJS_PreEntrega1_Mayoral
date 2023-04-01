@@ -8,23 +8,50 @@ import {
     CardBody,
     CardFooter,
     Heading,
-    Image,
-    Stack,
-    Text,
     Divider,
     Button,
     Center,
     Flex
 } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
+import FormCart from './FormCart';
 
 const Cart = () => {
-    const { total, setTotal, prod, setProd, setCwCounter } = useContext(CounterContext);
+    const { total, setTotal, prod, setProd, setCwCounter, empty, setEmpty } = useContext(CounterContext);
 
     const borrarCarro = () => {
         setProd([]);
         setCwCounter(0);
         setTotal(0);
+        setEmpty(true)
     };
+
+    if (empty) {
+        return (
+
+            <Container maxW="container.lg">
+                <Flex gap={"5"} wrap="wrap">
+                    <Card>
+                        <CardBody>
+                            <Heading as='h1' size='4xl' noOfLines={1}>
+                                Upss... carrito vacio D,:
+                            </Heading>
+                        </CardBody>
+                        <Divider />
+                        <CardFooter>
+                            <Center className="btn-center">
+                                <Link to="/items">
+                                    <Button variant="solid" colorScheme="green" onClick={() => borrarCarro()}>
+                                        Ir a catalogo...
+                                    </Button>
+                                </Link>
+                            </Center>
+                        </CardFooter>
+                    </Card>
+                </Flex>
+            </Container>
+        )
+    }
 
     return (
         <>
@@ -52,6 +79,7 @@ const Cart = () => {
                                 <Heading size="md">Total ${total}.00</Heading>
                             </Center>
                         </CardFooter>
+                        <FormCart />
                     </Card>
                 </Flex>
             </Container>

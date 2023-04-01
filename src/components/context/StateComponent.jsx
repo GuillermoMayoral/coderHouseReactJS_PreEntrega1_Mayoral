@@ -9,6 +9,9 @@ const StateComponent = ({ children }) => {
 
     const [carro, setCarro] = useState();
 
+    const [empty, setEmpty] = useState(true);
+
+
 
     const actualizarCarro = () => {
         setCarro(carro + cwCounter)
@@ -19,7 +22,7 @@ const StateComponent = ({ children }) => {
     const [total, setTotal] = useState(0);
 
     return (
-        <CounterContext.Provider value={{ total, setTotal, prod, setProd, setCwCounter, cwCounter, carro, actualizarCarro }}>{children}</CounterContext.Provider>
+        <CounterContext.Provider value={{ empty, setEmpty, total, setTotal, prod, setProd, setCwCounter, cwCounter, carro, actualizarCarro }}>{children}</CounterContext.Provider>
     )
 }
 

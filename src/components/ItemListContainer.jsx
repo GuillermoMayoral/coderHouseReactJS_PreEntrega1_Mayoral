@@ -5,7 +5,6 @@ import { Heading, Center } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore } from "firebase/firestore"
 
-
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([]);
@@ -21,13 +20,8 @@ const ItemListContainer = () => {
                 )
             });
             setProductos(docs)
-            console.log(productos);
         })
     }, [])
-
-
-    console.log(productos);
-
 
     const { category } = useParams();
 
