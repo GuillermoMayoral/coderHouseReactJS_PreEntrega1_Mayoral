@@ -34,3 +34,6 @@ Por ultimo tenemos un carrito, en el cual aparecerá un mensaje señalando que n
 ---
 
 ## GIF DEL PROYECTO
+
+![Top Running y 2 páginas más - Personal_ Microsoft_ Edge 2023-03-31 21-29-25 (1)](https://user-images.githubusercontent.com/105575445/229263846-aba3a3d4-2f71-44a0-b873-44a6d93d0213.gif)
+
